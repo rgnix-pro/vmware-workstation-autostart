@@ -23,6 +23,7 @@ type Vsi struct {
 
 func main() {
 
+	// variables
 	VMstart := ""
 	VMgui := ""
 	vmrun := "C:\\Program Files (x86)\\VMware\\VMware Workstation\\vmrun.exe"
