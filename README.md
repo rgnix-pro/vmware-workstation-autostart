@@ -33,6 +33,6 @@ This is an auto start app for VMware Workstation to auto start VM's on windows r
     ]
 }
 ```
-#### 3. Add vm-start.exe to your startup folder on windows
+#### 3. Add vm-start.exe & config.json to your startup folder on windows or create a short for vm-start.exe 
 
 `windows+r shell:startup `
