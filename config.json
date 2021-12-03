@@ -1,5 +1,5 @@
 {
-    "_comment": "Add the location of your json file which will have the host to start",
+    "_comment": "Add the location of your json file which will have the vm's listed",
     "__comment": "Add location of your vmrun installation path",
     "vm-start": "D:\\Virtual Machines\\AutoStart\\start-vmware.json",
     "vmrun": "C:\\Program Files (x86)\\VMware\\VMware Workstation\\vmrun.exe"
