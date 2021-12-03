@@ -1,4 +1,4 @@
-﻿# vmware-workstation-autostart
+﻿# VMware Workstation AutoStart
 
 This is an auto start app for VMware Workstation to auto start VM's on windows reboot with VMware Workstation installed.
 ## Setup
