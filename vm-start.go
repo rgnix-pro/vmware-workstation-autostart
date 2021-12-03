@@ -8,12 +8,13 @@ import (
 	"os/exec"
 )
 
-// VSI struct which contains array of vsi's
+// structured json
+// VSIs struct which contains array of vsi's
 type VSIs struct {
 	VSIs []Vsi `json:"vs"`
 }
 
-// VM struct which contains a Name a location and bools for enabling
+// Vsi struct which contains a Name, location and bools for enabling
 type Vsi struct {
 	Location string `json:"location"`
 	Name     string `json:"name"`
@@ -21,33 +22,48 @@ type Vsi struct {
 	Gui      bool   `json:"gui"`
 }
 
+// err check
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
 func main() {
 
-	// variables
+	// int vars
 	VMstart := ""
 	VMgui := ""
-	vmrun := "C:\\Program Files (x86)\\VMware\\VMware Workstation\\vmrun.exe"
 
-	// Open our jsonFile
-	jsonFile, err := os.Open("D:\\Virtual Machines\\AutoStart\\start-vsi.json")
+	// unstructured data
+	jsonFile, err := os.Open("config.json")
+	check(err)
 
-	// if os.Open returns an error then handle it
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// defer the closing of our jsonFile so that to parse it later on
 	defer jsonFile.Close()
 
+	byteVal, _ := ioutil.ReadAll(jsonFile)
+
+	var result map[string]interface{}
+	json.Unmarshal([]byte(byteVal), &result)
+
+	vmrun := fmt.Sprint(result["vmrun"])
+	
+	startJSON, err := os.Open(fmt.Sprint(result["vm-start"]))
+	check(err)
+
+
+	defer startJSON.Close()
+
 	// read our opened jsonFile as a byte array.
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, _ := ioutil.ReadAll(startJSON)
 
 	// initialize our vsi array
 	var vsi VSIs
 
-	// jsonFile's content into 'vsi' which was defined above
+	// jsonFile's content into 'vsi' which was defined above in structs
 	json.Unmarshal(byteValue, &vsi)
 
+	// structured json
 	// print results
 	fmt.Println("")
 	for i := 0; i < len(vsi.VSIs); i++ {
@@ -68,10 +84,10 @@ func main() {
 
 		// start the vsi's
 		out, err := exec.Command(vmrun, VMstart, vsi.VSIs[i].Location+vsi.VSIs[i].Name+"\\"+vsi.VSIs[i].Name+".vmx", VMgui).Output()
-		if err != nil {
-			fmt.Print("Status: Error! ", err)
-		} else {
-			fmt.Println("Status: Started...")
+		check(err)
+		
+		if err == nil {
+			fmt.Println("Status: Starting...")
 			fmt.Printf("%s\n", out)
 		}
 
