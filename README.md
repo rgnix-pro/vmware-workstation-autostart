@@ -1,5 +1,5 @@
 ﻿# VMware Workstation AutoStart
-[![Build Status](https://api.travis-ci.com/rgnix-pro/vmware-workstation-autostart.svg?branch=main&status=passed)](https://travis-ci.com/rgnix-pro/vmware-workstation-autostart)
+[![Build Status](https://api.travis-ci.com/rgnix-pro/vmware-workstation-autostart.svg?branch=main&status=passed)](https://travis-ci.com/github/rgnix-pro/vmware-workstation-autostart)
 ### This is an auto start app for VMware Workstation to auto start VM's on windows reboot with VMware Workstation installed.
 ## Setup
 
