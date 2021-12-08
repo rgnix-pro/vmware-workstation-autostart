@@ -16,7 +16,7 @@
 ```javascript
 {
     "_comment": "Make sure the name is the same folder name as the .vmx file",
-    "vsi": [
+    "vs": [
 
         {
             "location": "D:\\Virtual Machines\\",
