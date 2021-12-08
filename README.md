@@ -12,7 +12,7 @@
 }
 ```
 
-#### 2. Edit start-vmware.json 
+#### 2. Edit or Create start-vmware.json 
 ```javascript
 {
     "_comment": "Make sure the name is the same folder name as the .vmx file",
