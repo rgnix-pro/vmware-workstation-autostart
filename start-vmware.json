@@ -1,0 +1,18 @@
+{
+    "_comment": "Make sure the name is the same folder name as the .vmx file",
+    "vs": [
+
+        {
+            "location": "D:\\Virtual Machines\\",
+            "name": "vcenter.example.local",
+            "start": true,
+            "gui": false
+        },
+        {
+            "location": "D:\\Virtual Machines\\",
+            "name": "vsan-witness.example.local",
+            "start": true,
+            "gui": false
+        }
+    ]
+}
